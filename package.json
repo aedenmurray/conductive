@@ -33,6 +33,7 @@
   },
   "scripts": {
     "build": "./scripts/build.mjs",
+    "deploy": "./scripts/deploy.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

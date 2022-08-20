@@ -5,12 +5,12 @@ export default (wrappedFunction) => {
     const router = Router();
 
     const route = (config) => {
+        // TODO: Validate config.
+
         const { path, handler } = config;
         const middleware = config.middleware ?? [];
         const method = config.method.toLowerCase();
         const schema = config.schema;
-
-        // TODO: Validate config.
 
         if (schema) {
             middleware.unshift(validateRequest(schema));

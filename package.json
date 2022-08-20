@@ -1,7 +1,20 @@
 {
   "name": "conductive",
   "version": "0.0.1",
-  "description": "Utility components for Express.js",
+  "description": "Express.js framework for RESTful APIs.",
+  "homepage": "https://github.com/aedenmurray/conductive",
+  "license": "ISC",
+  "author": {
+    "name": "Aeden Murray",
+    "email": "aeden@aedenmurray.dev",
+    "url": "https://aedenmurray.dev"
+  },
+  "keywords": [
+    "express",
+    "expressjs",
+    "framework",
+    "api"
+  ],
   "main": "bin/cjs/index.js",
   "module": "bin/mjs/index.js",
   "exports": {
@@ -22,8 +35,6 @@
     "build": "./scripts/build.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",
     "rollup": "^2.78.1"

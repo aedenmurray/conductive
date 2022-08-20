@@ -1,14 +1,13 @@
 import AJV from 'ajv';
 import { BadRequest } from '../errors';
 
-const ajv = new AJV({
-    allErrors: true,
-});
+const ajv = new AJV();
 
 /**
  * TODO: Don't loop over ever single request property.
  * - Instead, only properties that are user defined.
  */
+
 export default (schema) => {
     const compiledValidationFunctions = {};
     const requestProperties = Object.keys(schema);
@@ -27,7 +26,8 @@ export default (schema) => {
 
             const isValid = validationFunction(request[property]);
             if (!isValid) {
-                throw new BadRequest(); // TODO: Add error message.
+                // TODO: Add error message.
+                throw new BadRequest();
             }
         });
     };

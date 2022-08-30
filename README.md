@@ -6,8 +6,6 @@ The Conductive framework is a collection of helpful components used for building
 
 These components are aimed to help maintain readability and reduce complexity across various applications.
 
-What is a _component_? In this context, a _component_ just means a bit of code, such as a function or class.
-
 ## Installation
 
 ```
@@ -16,7 +14,7 @@ npm install --save conductive
 
 ## Router
 
-The Router is a [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) used for describing API routes & their functions.
+The [Router](https://github.com/aedenmurray/conductive/blob/main/src/router.js) is a [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) used for describing API routes & their functions.
 
 It accepts a function as an argument, and passes the `route()` function back as a parameter.
 
@@ -48,4 +46,44 @@ const authRouter = router((route) => {
 
 app.use("/auth", authRouter)
 app.listen(1337)
+```
+
+## Errors
+
+Conductive comes bundled with a useful set of errors to help improve code readability.
+
+These errors all extend the [HTTPError](https://github.com/aedenmurray/conductive/blob/main/src/errors/HTTPError.js) class, which in turn extends the standard Javascript [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) class.
+
+You can find the full set of included error [here](https://github.com/aedenmurray/conductive/tree/main/src/errors).
+
+```javascript
+import { Unauthorized } from "conductive/errors"
+
+/**
+ * message: "Unauthorized!"
+ * status: 401
+ */
+
+export default async (request, response) => {
+  throw new Unauthorized()
+}
+```
+
+### Error Messages
+
+The included error messages are designed to be as generic as possible.
+
+You can pass in your own message via the errors' `constructor()`.
+
+```javascript
+import { Unauthorized } from "conductive/errors"
+
+/**
+ * message: "Invalid credentials!"
+ * status: 401
+ */
+
+export default async (request, response) => {
+  throw new Unauthorized("Invalid credentials!")
+}
 ```

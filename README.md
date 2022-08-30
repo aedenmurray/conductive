@@ -54,15 +54,10 @@ Conductive comes bundled with a useful set of errors to help improve code readab
 
 These errors all extend the [HTTPError](https://github.com/aedenmurray/conductive/blob/main/src/errors/HTTPError.js) class, which in turn extends the standard Javascript [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) class.
 
-You can find the full set of included error [here](https://github.com/aedenmurray/conductive/tree/main/src/errors).
+You can find the full list of included errors [here](https://github.com/aedenmurray/conductive/tree/main/src/errors).
 
 ```javascript
 import { Unauthorized } from "conductive/errors"
-
-/**
- * message: "Unauthorized!"
- * status: 401
- */
 
 export default async (request, response) => {
   throw new Unauthorized()
@@ -73,15 +68,10 @@ export default async (request, response) => {
 
 The included error messages are designed to be as generic as possible.
 
-You can pass in your own message via the errors' `constructor()`.
+You can pass in your own message via the `constructor()`.
 
 ```javascript
 import { Unauthorized } from "conductive/errors"
-
-/**
- * message: "Invalid credentials!"
- * status: 401
- */
 
 export default async (request, response) => {
   throw new Unauthorized("Invalid credentials!")

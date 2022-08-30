@@ -50,7 +50,7 @@ app.listen(1337)
 
 ## Errors
 
-Conductive comes bundled with a useful set of errors to help improve code readability.
+Conductive comes bundled with a useful set of error classes to help improve code readability.
 
 These errors all extend the [HTTPError](https://github.com/aedenmurray/conductive/blob/main/src/errors/HTTPError.js) class, which in turn extends the standard Javascript [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) class.
 

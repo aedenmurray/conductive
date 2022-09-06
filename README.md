@@ -14,7 +14,7 @@ npm install --save conductive
 
 ## Router
 
-The [Router](https://github.com/aedenmurray/conductive/blob/main/src/router.js) is a [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) used for describing API routes & their functions.
+The [`router`](https://github.com/aedenmurray/conductive/blob/main/src/router.js) is a [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) used for describing API routes & their functions.
 
 It accepts a function as an argument, and passes the `route()` function back as a parameter.
 
@@ -52,7 +52,7 @@ app.listen(1337)
 
 Conductive comes bundled with a useful set of error classes to help improve code readability.
 
-These errors all extend the [HTTPError](https://github.com/aedenmurray/conductive/blob/main/src/errors/HTTPError.js) class, which in turn extends the standard Javascript [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) class.
+These errors all extend the [`HTTPError`](https://github.com/aedenmurray/conductive/blob/main/src/errors/HTTPError.js) class, which in turn extends the standard Javascript [`Error`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) class.
 
 You can find the full list of included errors [here](https://github.com/aedenmurray/conductive/tree/main/src/errors).
 
@@ -77,3 +77,60 @@ export default async (request, response) => {
   throw new Unauthorized("Invalid credentials!")
 }
 ```
+
+### Error Handling
+
+There are 2 middleware functions that are designed to help with error handling:
+
+- [`handleNotFound`](https://github.com/aedenmurray/conductive/blob/main/src/middleware/handleNotFound.js) - Used for throwing the `NotFound` error if a route can't be found.
+- [`handleErrors`](https://github.com/aedenmurray/conductive/blob/main/src/middleware/handleErrors.js) - Used for handling all `HTTPError` messages.
+
+```javascript
+import express from "express"
+import { router } from "conductive"
+import { handleNotFound, handleErrors } from "conductive/middleware"
+import { Unauthorized } from "conductive/errors"
+
+const exampleRouter = router((route) => {
+  route({
+    path: "/unauthorized",
+    method: "GET",
+    handler: async (request, response) => {
+      throw new Unauthorized()
+    },
+  })
+
+  route({
+    path: "/bug",
+    method: "GET",
+    handler: async (request, response) => {
+      throw new Error()
+    },
+  })
+})
+
+app.use(exampleRouter)
+app.use(handleNotFound)
+app.use(handleErrors)
+
+app.listen(1337)
+```
+
+```bash
+$ curl localhost:1337/unauthorized
+{ "error": "Unauthorized!" }
+```
+
+```bash
+$ curl localhost:1337/bug
+{ "error": "Internal Server Error!" }
+```
+
+```bash
+$ curl localhost:1337/abc123
+{ "error": "Not Found: GET - /abc123" }
+```
+
+_If an error is thrown that is **not** an instance of `HTTPError`, an `InternalServerError` will be thrown instead._
+
+_This is to negate the "[Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)" vulnerability._

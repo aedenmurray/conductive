@@ -134,3 +134,32 @@ $ curl localhost:1337/abc123
 _If an error is thrown that is **not** an instance of `HTTPError`, an `InternalServerError` will be thrown instead._
 
 _This is to negate the **[Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)** vulnerability._
+
+## Middleware
+
+For now, Conductive includes only one other middleware function: `validateRequest()`.
+
+You may want to use this if you are defining your own middleware that requires schema validation.
+
+_This is the same function that is used in the [`router`](src/router.js) for `schema` validation._
+
+```javascript
+import { validateRequest } from "conductive/middleware"
+
+const authorizationSchema = {
+  headers: {
+    type: "object",
+    required: ["authorization"],
+    properties: {
+      authorization: { type: "string" },
+    },
+  },
+}
+
+export default async (request, response) => {
+  validateRequest(schema)
+
+  const { authorization } = request.headers
+  // TODO: Implement authorization via headers.
+}
+```

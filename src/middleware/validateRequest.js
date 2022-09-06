@@ -5,7 +5,7 @@ const ajv = new AJV();
 
 /**
  * TODO: Don't loop over ever single request property.
- * - Instead, only properties that are user defined.
+ * Instead, only properties that are user defined.
  */
 
 export default (schema) => {

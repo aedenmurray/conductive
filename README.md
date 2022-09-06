@@ -133,4 +133,4 @@ $ curl localhost:1337/abc123
 
 _If an error is thrown that is **not** an instance of `HTTPError`, an `InternalServerError` will be thrown instead._
 
-_This is to negate the "[Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)" vulnerability._
+_This is to negate the **[Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)** vulnerability._

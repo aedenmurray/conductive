@@ -1,12 +1,10 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
-// TODO: Minify.
-
 const main = [
     {
         input: 'src/index.js',
         plugins: [nodeResolve()],
-        external: ['ajv', 'express'],
+        external: ['ajv', 'ajv-formats', 'express'],
         output: {
             dir: 'bin/mjs',
             format: 'es',
@@ -22,7 +20,7 @@ const main = [
     {
         input: 'src/index.js',
         plugins: [nodeResolve()],
-        external: ['ajv', 'express'],
+        external: ['ajv', 'ajv-formats', 'express'],
         output: {
             dir: 'bin/mjs',
             format: 'es',
@@ -41,7 +39,7 @@ const middleware = [
     {
         input: 'src/middleware/index.js',
         plugins: [nodeResolve()],
-        external: ['ajv'],
+        external: ['ajv', 'ajv-formats'],
         output: {
             dir: 'bin/mjs',
             format: 'es',
@@ -57,7 +55,7 @@ const middleware = [
     {
         input: 'src/middleware/index.js',
         plugins: [nodeResolve()],
-        external: ['ajv'],
+        external: ['ajv', 'ajv-formats'],
         output: {
             dir: 'bin/cjs',
             format: 'cjs',

@@ -1,6 +1,6 @@
 {
   "name": "conductive",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Pseudo Express.js framework used for quickly building RESTful APIs",
   "homepage": "https://github.com/aedenmurray/conductive",
   "license": "ISC",

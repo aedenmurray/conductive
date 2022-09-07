@@ -18,7 +18,7 @@ The [`router`](src/router.js) is a [higher-order function](https://en.wikipedia.
 
 It accepts a function as an argument, and passes the `route()` function back as a parameter.
 
-You can find the full API documentation [here](https://example.com).
+You can find the full API documentation [here](docs/router.md).
 
 ```javascript
 import express from "express"

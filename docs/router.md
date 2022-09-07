@@ -62,6 +62,7 @@ const authRouter = router((route) => {
   })
 })
 
+const app = express()
 app.use("/auth", authRouter)
 app.listen(1337)
 ```

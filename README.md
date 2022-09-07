@@ -44,6 +44,7 @@ const authRouter = router((route) => {
   })
 })
 
+const app = express()
 app.use("/auth", authRouter)
 app.listen(1337)
 ```
@@ -109,6 +110,7 @@ const exampleRouter = router((route) => {
   })
 })
 
+const app = express()
 app.use(exampleRouter)
 app.use(handleNotFound)
 app.use(handleErrors)

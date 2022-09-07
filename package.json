@@ -42,6 +42,7 @@
   },
   "peerDependencies": {
     "ajv": "^8.11.0",
+    "ajv-formats": "^2.1.1",
     "express": "^4.18.1"
   },
   "files": [

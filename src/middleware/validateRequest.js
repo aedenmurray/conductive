@@ -1,7 +1,9 @@
 import AJV from 'ajv';
+import addFormats from 'ajv-formats';
 import { BadRequest } from '../errors';
 
 const ajv = new AJV();
+addFormats(ajv);
 
 export default (schema) => {
     const compiledValidationFunctions = {};

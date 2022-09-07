@@ -95,7 +95,7 @@ const exampleRouter = router((route) => {
   route({
     path: "/unauthorized",
     method: "GET",
-    handler: async (request, response) => {
+    handler: async () => {
       throw new Unauthorized()
     },
   })
@@ -103,7 +103,7 @@ const exampleRouter = router((route) => {
   route({
     path: "/bug",
     method: "GET",
-    handler: async (request, response) => {
+    handler: async () => {
       throw new Error()
     },
   })

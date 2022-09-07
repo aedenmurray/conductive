@@ -3,11 +3,6 @@ import { BadRequest } from '../errors';
 
 const ajv = new AJV();
 
-/**
- * TODO: Don't loop over ever single request property.
- * Instead, only properties that are user defined.
- */
-
 export default (schema) => {
     const compiledValidationFunctions = {};
     const requestProperties = Object.keys(schema);

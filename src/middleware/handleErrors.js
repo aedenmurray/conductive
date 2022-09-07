@@ -10,6 +10,7 @@ export default (error, request, response, next) => {
     }
 
     if (!(error instanceof HTTPError)) {
+        console.error(error);
         error = new InternalServerError();
     }
 

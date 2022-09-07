@@ -1,6 +1,6 @@
 # Router
 
-The [`router`](src/router.js) is a [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) used for describing API routes & their functions.
+The [`router`](/src/router.js) is a [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) used for describing API routes & their functions.
 
 It accepts a function as an argument, and passes the `route()` function back as a parameter.
 

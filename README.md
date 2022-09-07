@@ -14,11 +14,11 @@ npm install --save conductive
 
 ## Router
 
-The [`router`](src/router.js) is a [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) used for describing API routes & their functions.
+The [`router`](/src/router.js) is a [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) used for describing API routes & their functions.
 
 It accepts a function as an argument, and passes the `route()` function back as a parameter.
 
-You can find the full API documentation [here](docs/router.md).
+You can find the full API documentation [here](/docs/router.md).
 
 ```javascript
 import express from "express"
@@ -52,7 +52,7 @@ app.listen(1337)
 
 Conductive comes bundled with a useful set of error classes to help improve code readability.
 
-These errors all extend the [`HTTPError`](src/errors/HTTPError.js) class, which in turn extend the standard Javascript [`Error`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) class.
+These errors all extend the [`HTTPError`](/src/errors/HTTPError.js) class, which in turn extend the standard Javascript [`Error`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) class.
 
 You can find the full list of included errors [here](/src/errors).
 
@@ -82,8 +82,8 @@ export default async (request, response) => {
 
 There are 2 middleware functions that are designed to help with error handling:
 
-- [`handleNotFound`](src/middleware/handleNotFound.js) - Used for throwing the `NotFound` error if a route can't be found.
-- [`handleErrors`](src/middleware/handleErrors.js) - Used for handling all `HTTPError` messages.
+- [`handleNotFound`](/src/middleware/handleNotFound.js) - Used for throwing the `NotFound` error if a route can't be found.
+- [`handleErrors`](/src/middleware/handleErrors.js) - Used for handling all `HTTPError` messages.
 
 ```javascript
 import express from "express"
@@ -131,9 +131,9 @@ $ curl localhost:1337/abc123
 { "error": "Not Found: GET - /abc123" }
 ```
 
-_Any [`HTTPError`](src/errors/HTTPError.js) errors will not be logged. However, other errors will be logged to `stderr`._
+_Any [`HTTPError`](/src/errors/HTTPError.js) errors will not be logged. However, other errors will be logged to `stderr`._
 
-_If an error is thrown that is **not** an instance of [`HTTPError`](src/errors/HTTPError.js), an [`InternalServerError`](src/errors/InternalServerError.js) will be thrown instead._
+_If an error is thrown that is **not** an instance of [`HTTPError`](/src/errors/HTTPError.js), an [`InternalServerError`](/src/errors/InternalServerError.js) will be thrown instead._
 
 _This is to negate the **[Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)** vulnerability._
 
@@ -143,7 +143,7 @@ For now, Conductive includes only one other middleware function: `validateReques
 
 You may want to use this if you are defining your own middleware that requires schema validation.
 
-_This is the same function that is used in the [`router`](src/router.js) for `schema` validation._
+_This is the same function that is used in the [`router`](/src/router.js) for `schema` validation._
 
 ```javascript
 import { validateRequest } from "conductive/middleware"

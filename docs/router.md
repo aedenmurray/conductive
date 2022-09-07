@@ -44,8 +44,7 @@ const authRouter = router((route) => {
             format: "email"
           },
           password: { 
-            type: "string",
-            format: "password" 
+            type: "string", 
           },
         },
       },

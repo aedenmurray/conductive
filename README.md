@@ -52,7 +52,7 @@ app.listen(1337)
 
 Conductive comes bundled with a useful set of error classes to help improve code readability.
 
-These errors all extend the [`HTTPError`](/src/errors/HTTPError.js) class, which in turn extend the standard Javascript [`Error`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) class.
+These errors all extend the [`HTTPError`](src/errors/HTTPError.js) class, which in turn extend the standard Javascript [`Error`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) class.
 
 You can find the full list of included errors [here](/src/errors).
 
@@ -131,7 +131,9 @@ $ curl localhost:1337/abc123
 { "error": "Not Found: GET - /abc123" }
 ```
 
-_If an error is thrown that is **not** an instance of `HTTPError`, an `InternalServerError` will be thrown instead._
+_Any [`HTTPError`](src/errors/HTTPError.js) errors will not be logged. However, other errors will be logged to `stderr`._
+
+_If an error is thrown that is **not** an instance of [`HTTPError`](src/errors/HTTPError.js), an [`InternalServerError`](src/errors/InternalServerError.js) will be thrown instead._
 
 _This is to negate the **[Improper Error Handling](https://owasp.org/www-community/Improper_Error_Handling)** vulnerability._
 

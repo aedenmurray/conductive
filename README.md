@@ -166,6 +166,6 @@ export const authenticateViaBearerToken = async (request, response) => {
   validate(request)
 
   const { authorization } = request.headers;
-  // TODO: Implement authorization via headers.
+  // TODO: Implement authentication.
 }
 ```

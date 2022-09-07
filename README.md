@@ -146,7 +146,7 @@ _This is the same function that is used in the [`router`](src/router.js) for `sc
 ```javascript
 import { validateRequest } from "conductive/middleware"
 
-const schema = {
+const validate = validateRequest({
   headers: {
     type: "object",
     required: ["authorization"],
@@ -154,10 +154,10 @@ const schema = {
       authorization: { type: "string" },
     },
   },
-}
+});
 
 export default async (request, response) => {
-  validateRequest(schema)
+  validate(request)
 
   const { authorization } = request.headers
   // TODO: Implement authorization via headers.

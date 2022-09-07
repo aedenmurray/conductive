@@ -146,7 +146,7 @@ _This is the same function that is used in the [`router`](src/router.js) for `sc
 ```javascript
 import { validateRequest } from "conductive/middleware"
 
-const authorizationSchema = {
+const schema = {
   headers: {
     type: "object",
     required: ["authorization"],

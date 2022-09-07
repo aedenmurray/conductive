@@ -6,7 +6,7 @@ It accepts a function as an argument, and passes the `route()` function back as 
 
 ## Advantages:
 
-- The return value of the `handler` is used as the response to the user if no response has been sent.
+- The return value of the `handler` is used as the response to the user _if no response has been sent_.
 - You may use `async` functions for both the `handler` & `middleware` functions.
 - Schema validation is built-in with the use of the `schema` option.
 

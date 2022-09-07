@@ -151,15 +151,17 @@ const validate = validateRequest({
     type: "object",
     required: ["authorization"],
     properties: {
-      authorization: { type: "string" },
+      authorization: { 
+        type: "string" 
+      },
     },
   },
 });
 
-export default async (request, response) => {
+export const authenticateViaBearerToken = async (request, response) => {
   validate(request)
 
-  const { authorization } = request.headers
+  const { authorization } = request.headers;
   // TODO: Implement authorization via headers.
 }
 ```

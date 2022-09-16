@@ -147,6 +147,8 @@ You may want to use this if you are defining your own middleware that requires s
 
 _This is the same function that is used in the [`router`](/src/router.js) for `schema` validation._
 
+You can find the full API documentation [here](/docs/middleware.md#validaterequest).
+
 ```javascript
 import { validateRequest } from "conductive/middleware"
 
